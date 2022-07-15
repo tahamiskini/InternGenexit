@@ -1,0 +1,127 @@
+.gallery {
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;
+    -webkit-column-width: 33%;
+    -moz-column-width: 33%;
+    column-width: 33%;
+    padding: 0 12px;
+    padding-left: 95px;
+}
+.gallery .pics {
+    -webkit-transition: all 350ms ease;
+    transition: all 350ms ease;
+    cursor: pointer;
+    margin-left: -12px;
+    
+}
+  
+.gallery .pics:hover {
+    filter: opacity(0.8);
+}
+
+@media (max-width: 991px){
+    .gallery {
+        -webkit-column-count: 2;
+        -moz-column-count: 3;
+        column-count: 2;
+    }
+
+}
+@media (max-width: 480px){
+    .gallery {
+        -webkit-column-count: 1;
+        -moz-column-count: 1;
+        column-count: 1;
+        -webkit-column-width: 100%;
+        -moz-column-width: 100%;
+        column-width: 100%;
+    }  
+}
+
+.pageD {
+    margin-left: 80px;
+    position: fixed;
+}
+.transparent {
+    position:absolute;
+    margin-right: 0px;
+    height:100vh;
+    width: 33.5vw;
+    background-color: black;
+    opacity:0.6;
+ 
+ }
+
+ .imagerotate{
+     position:absolute;
+     margin-left: 400px;
+     margin-top: 100px;
+     
+ }
+ span:last-of-type {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 170%;
+    font-weight: bold;
+    color: #fff;
+    
+    padding: 0.6rem;
+  }
+  p:last-of-type {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 140%;
+    color: #fff;
+    padding: 0.6rem;
+  }
+  
+.block {
+    transform: rotate(270deg);
+    margin-top: 35vh;
+    margin-left: -20vw;
+ 
+
+}
+.nom p {
+    font-size: 3.5vw;
+}
+
+.date p {
+   
+    font-size: 0.8vw;
+
+}
+
+.mur {
+    background-color:#AD1A1A;
+    margin-top: -30px;
+    
+}
+.slider{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    width:12vw;
+    height: 13vh;
+    margin-left: 84vw;
+    margin-top: 68vh;
+}
+.smallimage{
+    width:8vw;
+    height: 13vh;
+}
+.smallslider{
+    width: 4vw;
+    height: 13vh;
+    background-color: rgb(21,53,85);
+}
+.contextapi{
+    color: seashell;
+    padding-left: 27%;
+    padding-top: 30%;
+}
+.contextapi1{
+    color: seashell;
+    padding-left: 27%;
+    padding-top: 0%;
+}
