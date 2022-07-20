@@ -1,9 +1,9 @@
-import {usestate} from "react";
+import {useState ,useEffect,useRef,useLayoutEffect } from "react";
 import { HiArrowNarrowRight,HiArrowNarrowLeft } from 'react-icons/hi';
 import { IconContext } from "react-icons";
 import '../gallery.css';
 import Sidebar from '../components/sidebar';
-import { useParams } from "react-router-dom";
+import { useParams, } from "react-router-dom";
 import Img1 from '../img/externimage/img1.png';
 import Img2 from '../img/externimage/img2.png';
 import Img3 from '../img/externimage/img3.png';
@@ -17,17 +17,44 @@ import appart1 from '../img/internimage/appart1.jpeg'
 import appart2 from '../img/internimage/appart2.jpg'
 import appart3 from '../img/internimage/appart3.jpeg'
 import appart4 from '../img/internimage/appart4.jpeg'
+import axios from "axios";
+
 import { Link } from 'react-router-dom';
 export default function Expenses() {
   const { id } = useParams();
+
   const i = id;
+
+  const [posts, setPosts] = useState([])
+  const inputRef = useRef(null)
+  const varRef = useRef(posts.length)
+
+  useEffect(() =>  {
+    axios.get(
+      'http://localhost/drupal10/api/interior_design/%'
+      )
+    .then((res) => {
+      setPosts(res)
+      .then(
+        (result)=>{
+          setPosts(res)
+        });
+        
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  },[])
+
+
     return (
       <div>
      <Sidebar />
      <div className="pageD">
-    
-     <img src={data[id-1].imgSrc} style={{width: '95vw', height: '100vh',}}/>
-     
+      {
+         <img src={posts.field_imageuri} style={{width: '95vw', height: '100vh',}}/>
+      }
+)
         </div>
         <div className="transparent"></div>
         <div className="imagerotate">
@@ -37,20 +64,18 @@ export default function Expenses() {
        </div>
         </div>
         <div className="slider">
-          <div className="smallimage"><img src={data[i-1].imgSrc} style={{width: '100%', height: '100%'}}/></div>
+          <div className="smallimage"><img src={data[i-2].imgSrc} style={{width: '100%', height: '100%'}}/></div>
           <div className="smallslider">
-            
-          <IconContext.Provider value={{ className: "contextapi" }}>
-          <Link to={`/expenses/${data[i-1].id}/`} style={{ textDecoration: 'none' }}> 
-                <HiArrowNarrowLeft  size={22}/>
-          </Link>
-           </IconContext.Provider>
-
-           <IconContext.Provider value={{ className: "contextapi1" }}>
-                <HiArrowNarrowRight size={22}/>
-           </IconContext.Provider>
-          </div>  
-      </div>  
+            <IconContext.Provider value={{ className: "contextapi" }}>
+            <Link to={`/expenses/${data[i-1].id}`} style={{ textDecoration: 'none' }}>
+                  <HiArrowNarrowLeft  size={22}/>
+               </Link>
+            </IconContext.Provider>
+            <IconContext.Provider value={{ className: "contextapi1" }}>
+                  <HiArrowNarrowRight size={22}/>
+            </IconContext.Provider>
+          </div>
+      </div>
         </div>
     );
   }
@@ -112,23 +137,4 @@ export default function Expenses() {
         date: '2020',
         
     }
-      ]
-
-      let data1  =  [
-        {
-          id: 1,
-          imgSrc: appart1
-        },
-        {
-          id:2,
-          imgSrc: appart2
-        },
-        {
-          id:3,
-          imgSrc: appart3
-        },
-        {
-          id:4,
-          imgSrc: appart4
-        }
       ]

@@ -10,9 +10,9 @@
 }
 .gallery .pics {
     -webkit-transition: all 350ms ease;
-    transition: all 350ms ease;
-    cursor: pointer;
-    margin-left: -12px;
+     transition: all 350ms ease;
+     cursor: pointer;
+     margin-left: -12px;
     
 }
   
@@ -93,8 +93,8 @@
 
 .mur {
     background-color:#AD1A1A;
-    margin-top: -30px;
-    
+    margin-top:-22px;
+
 }
 .slider{
     position: absolute;
@@ -125,3 +125,5 @@
     padding-left: 27%;
     padding-top: 0%;
 }
+
+
